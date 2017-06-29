@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>公共组件</title>
+    <link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="components.css"/>
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
+
+</head>
+
+<body>
+<div class="clearfix">
+    <ul class="all-btn">
+        <li><a href="javascript:void(0);">新建职务</a></li>
+        <li><a class="btn-spe" href="javascript:void(0);">编辑职务</a></li>
+        <li><a href="javascript:void(0);">删除职务</a></li>
+        <li><a href="javascript:void(0);">添加人员</a></li>
+    </ul>
+</div>
+	
+<!--jump-->
+<div class="jump-content">
+    <div class="jump-header">
+        <p class="jump-header-title" >系统提示</p>
+        <a class="jump-header-close" href="javascript:void(0);">
+        	<img src="images/close.png" width="12" height="13">
+        </a>
+    </div>
+    <div class="jump-body">
+    	<div class="jump-body-icon">
+        	<img src="images/errorNotice.png" /><span>确定要删除吗？</span>
+        </div>
+    </div>
+    <div class="jump-footer">
+    	<div class="jump-footer-btn-left fl">
+        	<button class="jump-btn-left" >删除部门</button>
+        </div>
+        <div class="jump-footer-btn-right fr">
+            <button class="jump-btn-save" >确定</button>
+            <button class="jump-btn-cancel">取消</button>
+        </div>
+    </div>
+</div>
+
+<div id="save-success-new" class="save-success-new"><img src="images/ip/menu/success_p.png" height="" width=""/>保存成功!</div>
+<div id="delete-success-new" class="save-success-new"><img src="images/ip/menu/success_p.png" height="" width=""/>删除成功!</div>
+</body>
+</html>

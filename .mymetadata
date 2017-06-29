@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="xsg"
+  id="myeclipse.1498396991253"
+  context-root="/xsg"
+  j2ee-spec="6.0"
+  archive="xsg.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,123 @@
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+ul.all-btn{
+	padding:10px 0;
+}
+ul.all-btn{
+	float:left;
+}
+.all-btn li{
+	float:left;
+}
+ul.all-btn li a{
+	display:block;
+	width:60px;
+	height: 25px;
+	line-height: 25px;
+	border:1px solid #ccc;
+	background:#f9f9f9;
+	text-align:center;
+	margin-right:7px;
+}
+ul.all-btn li a:hover{
+	color:#333;
+	background:#eee;
+}
+ul.all-btn li a.btn-spe{
+	background:#ccc;
+	color: #9a9a9a;
+}
+
+
+/*jump*/
+.jump-content{
+	width:300px;
+	background:#fff;
+}
+
+/*jump-header*/
+.jump-header{
+	height:36px;
+	line-height:36px;
+	background:#208bdb;
+}
+.jump-header-title{
+	margin:0;
+	float:left;
+	margin-left:12px;
+	color:#fff;
+	font-family:"微软雅黑";
+	font-size:14px;
+}
+.jump-header-close{
+	float:right;
+	display:inline-block;
+	margin-right:10px;
+}
+
+/*jump-body*/
+.jump-body{
+	padding:20px 0;
+	text-align:center;
+}  
+.jump-body-icon span{
+	display:inline-block;
+	margin-left:5px;
+}
+/*jump-footer*/
+.jump-footer{
+	height:36px;
+	background:#eee;
+	padding-right:8px;
+	line-height: 36px;
+}
+.jump-footer button{
+	float:left;
+	height:28px;
+	padding:0px 16px;
+	text-align:center;
+	line-height:28px;
+	border:none;
+	color:#fff;
+	margin-left:6px;
+}
+
+.jump-footer-btn-left button{
+	background:#c92c2c;
+}
+.jump-footer-btn-right{
+	margin-top:4px;}
+.jump-footer-btn-right button.jump-btn-save{
+	background:#2298ef;
+}
+.jump-footer-btn-right button.jump-btn-cancel{
+	background:#999;
+}
+
+.save-success-new {
+	display: none; 
+	position: absolute; 
+	top: 200px; 
+	left: 50%; 
+	margin-left: -30px; 
+	font-size: 16px; 
+	color:#333;
+	background: url("images/icon_success.png") no-repeat;
+	height: 52px;
+    width: 119px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+}
+#save-success-new img{
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+#delete-success-new img{
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
