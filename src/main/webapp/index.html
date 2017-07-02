@@ -17,28 +17,66 @@
 				</div>
 				<div class="col-sm-8 col-md-9 col-lg-6">
 					<div class="header">
-						<button class="btn btn-primary"  id="addsss" data-bind="click:addGroup">新增</button> 
-						<button class="btn btn-primary"  role="button" data-bind="click:modifyGroup">修改</button> 
-						<button class="btn btn-danger"  role="button" data-bind="click:delGroup" id="groupDel">删除</button> 
-						<button class="btn btn-primary" data-toggle="modal" style="width:183px" data-target="#elementModal" role="button">数据权限要素设置</button>
+						<button class="btn btn-primary"  role="button" data-bind="click:saveReservation" id="groupDel">删除</button> 
 					</div>
 					<div class="form-group clearfix">
-						<label for="inputEmail3" class="col-sm-1 control-label">编号:</label>
-						<div class="col-sm-11" style="width:35%;">
-							<input type="text" class="form-control" id="right-code" readonly="true" >
-						</div>
-					</div>
-					<div class="form-group clearfix">
-						<label for="inputPassword3" class="col-sm-1 control-label">名称:</label>
-						<div class="col-sm-11" style="width:35%;">
-							<input type="text" class="form-control" id="right-name" readonly="true" >
+						<label for="unit" class="col-sm-3 control-label">参观预约单位:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="unit" >
 						</div>
 					</div>
 					
+					<div class="form-group clearfix">
+						<label for="contacts" class="col-sm-3 control-label">联系人:</label>
+						<div class="col-sm-4" >
+							<input type="text" class="form-control" id="contacts" >
+						</div>
+						<label for=phone_num class="col-sm-2 control-label">联系电话:</label>
+						<div class="col-sm-3" >
+							<input type="text" class="form-control" id="phone_num" >
+						</div>
+					</div>
+					<div class="form-group">
+					
+		                <label for="visit_date" class="col-sm-3 control-label">预约参观日期:</label>
+		                <div class="input-group date form_date col-sm-4" data-link-field="visit_date" data-link-format="yyyy-mm-dd">
+		                    <input class="form-control" size="16" type="text" value="" readonly>
+		                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                </div>
+		               <input type="hidden" id="dtp_input2" value="" /><br/>
+						<label for="visit_num" class="col-sm-2 control-label">参观人数:</label>
+						<div class="col-sm-3" >
+							<input type="text" class="form-control" id="visit_num" >
+						</div>
+           			</div>
+					
+					
+					<div class="form-group clearfix">
+						<label for="visit_time" class="col-sm-3 control-label">预约参观时间:</label>
+						 <div  id="visit_time" class="col-sm-9"> 
+							  <select  class="form-control">
+							      <option value="1">上午8点  ~ 上午10点</option>
+							      <option value="2">上午10点  ~ 上午12点</option>
+							      <option value="3">下午1点  ~ 下午3点</option>
+							      <option value="4">下午3点  ~ 下午5点</option>
+							      <option value="5">下午5点  ~ 下午7点</option>
+						   	 </select>
+					   	 </div>
+					</div>
+					<div class="form-group clearfix">
+						<label for="inputEmail3" class="col-sm-3 row-sm-2 control-label">参观事由或参观人员介绍:</label>
+						<div class="col-sm-9 row-sm-2">
+							    <textarea class="form-control" rows="2"></textarea>
+						</div>
+					</div>
 				</div>
 				<div class="col-sm-4 col-md-3 col-lg-3 left-content">
 				</div>
 			</div>
 		</div>
 		</body>
+		<script src="/xsg/trd/requirejs/require.js"></script>
+		<script src="/xsg/trd/requirejs/require.config.js"></script>
+		<script src="/xsg/js/index.js"></script>
 </html>
