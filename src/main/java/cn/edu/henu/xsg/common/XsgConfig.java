@@ -1,5 +1,6 @@
 package cn.edu.henu.xsg.common;
 
+import cn.edu.henu.xsg.model.Reservation;
 import cn.edu.henu.xsg.routes.FrontRoutes;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;

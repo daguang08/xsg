@@ -1,7 +1,12 @@
 package cn.edu.henu.xsg.service;
 
+import java.util.List;
+
 import cn.edu.henu.xsg.model.Reservation;
+
+import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -28,5 +33,8 @@ public class ReservationService {
 	
 	public void deleteById(int id) {
 		dao.deleteById(id);
+	}
+	public void save(Record rec) {
+		Db.save("reservation", rec);
 	}
 }

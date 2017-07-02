@@ -17,7 +17,7 @@
 				</div>
 				<div class="col-sm-8 col-md-9 col-lg-6">
 					<div class="header">
-						<button class="btn btn-primary"  role="button" data-bind="click:saveReservation" id="groupDel">删除</button> 
+						<button class="btn btn-primary"  role="button" data-bind="click:saveReservation">保存</button> 
 					</div>
 					<div class="form-group clearfix">
 						<label for="unit" class="col-sm-3 control-label">参观预约单位:</label>
@@ -37,14 +37,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-					
 		                <label for="visit_date" class="col-sm-3 control-label">预约参观日期:</label>
 		                <div class="input-group date form_date col-sm-4" data-link-field="visit_date" data-link-format="yyyy-mm-dd">
 		                    <input class="form-control" size="16" type="text" value="" readonly>
 		                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 		                </div>
-		               <input type="hidden" id="dtp_input2" value="" /><br/>
+		               <input type="hidden" id="visit_date" value="" /><br/>
 						<label for="visit_num" class="col-sm-2 control-label">参观人数:</label>
 						<div class="col-sm-3" >
 							<input type="text" class="form-control" id="visit_num" >
@@ -65,9 +64,9 @@
 					   	 </div>
 					</div>
 					<div class="form-group clearfix">
-						<label for="inputEmail3" class="col-sm-3 row-sm-2 control-label">参观事由或参观人员介绍:</label>
+						<label for="remark" class="col-sm-3 row-sm-2 control-label">参观事由或参观人员介绍:</label>
 						<div class="col-sm-9 row-sm-2">
-							    <textarea class="form-control" rows="2"></textarea>
+							    <textarea class="form-control" id="remark" rows="2"></textarea>
 						</div>
 					</div>
 				</div>
