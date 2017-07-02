@@ -34,7 +34,22 @@ public class ReservationService {
 	public void deleteById(int id) {
 		dao.deleteById(id);
 	}
-	public void save(Record rec) {
-		Db.save("reservation", rec);
+	public void save(Record rec) throws Exception {
+		StringBuilder sb=new StringBuilder();
+		sb.append("select * from reservation t ");
+		sb.append("where ");
+		sb.append("t.visit_date=");
+		sb.append("'");
+		sb.append(rec.getStr("visit_date"));
+		sb.append("'");
+		sb.append(" and t.visit_time=");
+		sb.append(rec.getInt("visit_time"));
+		List res=Db.find(sb.toString());
+		if(res != null && res.size()>0){
+			throw new Exception("已存在！");
+		}
+		else{
+			Db.save("reservation", rec);
+		}
 	}
 }

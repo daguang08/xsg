@@ -23,10 +23,9 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
     			if(data.result=="success"){
     				alert(data.msg);
     			}
-    			else
-    				{
-    					alert("保存失败！");
-    				}
+    			else if(data.result=="fail"){
+    				alert(data.msg);
+    			}
     		},
     		error:function(data){
     			console.log(data);
