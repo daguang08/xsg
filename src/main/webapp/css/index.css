@@ -115,6 +115,9 @@ body{
     margin-right: 39px;
     display: inline;
 }
+#warning{
+	color:red
+}
 .hnavs .sub_nav_1 dt{
     font-size: 16px;
     color: #7d7d7d;

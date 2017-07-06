@@ -17,38 +17,48 @@
 				</div>
 				<div class="col-sm-8 col-md-9 col-lg-6">
 					<div class="header">
-						<button class="btn btn-primary"  role="button" data-bind="click:saveReservation">保存</button> 
+					<h1>河南大学校史馆参观预约</h1>
 					</div>
 					<div class="form-group clearfix">
 						<label for="unit" class="col-sm-3 control-label">参观预约单位:</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="unit" >
+							<input type="text" class="form-control" id="unit" onblur="validateInput('unit',this.value)" >
 						</div>
 					</div>
 					
 					<div class="form-group clearfix">
 						<label for="contacts" class="col-sm-3 control-label">联系人:</label>
 						<div class="col-sm-4" >
-							<input type="text" class="form-control" id="contacts" >
+							<input type="text" class="form-control" id="contacts"  onblur="validateInput(this.id,this.value)">
 						</div>
-						<label for=phone_num class="col-sm-2 control-label">联系电话:</label>
-						<div class="col-sm-3" >
-							<input type="text" class="form-control" id="phone_num" >
-						</div>
+					
 					</div>
-					<div class="form-group">
+					
+					<div class="form-group clearfix">
+						<label for=phone_num class="col-sm-3 control-label">联系电话:</label>
+						<div class="col-sm-4" >
+							<input type="text" class="form-control" id="phone_num" onblur="validateInput(this.id,this.value)">
+						</div>
+						<span class="col-sm-5" id="warning"></span>
+						
+					</div>
+					
+					<div class="form-group clearfix">
 		                <label for="visit_date" class="col-sm-3 control-label">预约参观日期:</label>
-		                <div class="input-group date form_date col-sm-4" data-link-field="visit_date" data-link-format="yyyy-mm-dd">
-		                    <input class="form-control" size="16" type="text" value="" readonly>
+		                <div class="input-group date form_date col-sm-8" data-link-field="visit_date" data-link-format="yyyy-mm-dd">
+		                    <input class="form-control" style="margin-left: 14px"  type="text" value="" readonly>
 		                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 		                </div>
-		               <input type="hidden" id="visit_date" value="" /><br/>
-						<label for="visit_num" class="col-sm-2 control-label">参观人数:</label>
-						<div class="col-sm-3" >
-							<input type="text" class="form-control" id="visit_num" >
-						</div>
+		               <input type="hidden" id="visit_date" value="" />
            			</div>
+					
+					<div class="form-group clearfix">
+						<label for="visit_num" class="col-sm-3 control-label">参观人数:</label>
+						<div class="col-sm-5" >
+							<input type="number" class="form-control" id="visit_num" >
+						</div>
+					</div>
 					
 					<div class="form-group clearfix">
 						<label for="visit_time" class="col-sm-3 control-label">预约参观时间:</label>
@@ -68,8 +78,11 @@
 							    <textarea class="form-control" id="remark" rows="2"></textarea>
 						</div>
 					</div>
+					<div id="footer">
+						<button class="btn btn-primary"  role="button" data-bind="click:saveReservation">保存</button> 
+					</div>
 				</div>
-				<div class="col-sm-4 col-md-3 col-lg-3 left-content">
+				<div class="col-sm-4 col-md-3 col-lg-3 right-content">
 				</div>
 			</div>
 		</div>
