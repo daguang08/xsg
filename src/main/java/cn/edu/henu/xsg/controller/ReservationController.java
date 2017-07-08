@@ -1,6 +1,7 @@
 package cn.edu.henu.xsg.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 
@@ -18,6 +19,12 @@ public class ReservationController extends Controller{
 	public void index() {
 		setAttr("blogPage", service.paginate(getParaToInt(0, 1), 10));
 		render("blog.html");
+	}
+	public void getReservationList(){
+		List list=service.getReservationList();
+		setAttr("result","success");
+		setAttr("dataList",list);
+		renderJson();
 	}
 	
 	public void add() {
@@ -55,20 +62,29 @@ public class ReservationController extends Controller{
 		String create_time=df.format(new Date());// new Date()为获取当前系统时间
 		rec.set("create_time", create_time);
 		try{
-			service.save(rec);
+			String id=service.save(rec);
+			setAttr("id",id);
 			setAttr("result","success");
-			setAttr("msg", "保存成功！");
+			setAttr("msg", "恭喜您！预约已经成功！");
 		}catch (Exception e) {
 			// TODO: handle exception
 			setAttr("result","fail");
-			setAttr("msg", "请重新选择日期！");
+			setAttr("msg", "抱歉！该时间段已预约，请选择其他日期或者其他时间段！");
 		}
 		
 		renderJson();
 	}
 	
 	public void edit() {
-		setAttr("blog", service.findById(getParaToInt()));
+		//setAttr("blog", service.findById(getParaToInt()));
+	}
+	
+	public void getReservationById(){
+		String id=getPara("id");
+		Reservation res=service.findById(id);
+		setAttr("result","success");
+		setAttr("resData",res);
+		renderJson();
 	}
 	
 	/**

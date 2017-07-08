@@ -30,7 +30,7 @@ require.config({
 			deps: ["uui"]
 		},
 		"dataPicker":{
-			deps: ["jquery","bootstrap","css!trd/datepicker/css/datepicker.css"]
+			deps: ["jquery","bootstrap"]
 		},
 		"dataPickerCN":{
 			deps: ["dataPicker"]

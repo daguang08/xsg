@@ -27,14 +27,28 @@ public class ReservationService {
 		return dao.paginate(pageNumber, pageSize, "select *", "from reservation order by id asc");
 	}
 	
-	public Reservation findById(int id) {
+	public Reservation findById(String id) {
 		return dao.findById(id);
 	}
 	
 	public void deleteById(int id) {
 		dao.deleteById(id);
 	}
-	public void save(Record rec) throws Exception {
+	
+	/**
+	 * 获取预约列表
+	 * @return
+	 */
+	public List getReservationList(){
+		return dao.find("select * from reservation order by id desc ");
+	}
+	
+	/**
+	 * 预约记录的保存
+	 * @param rec
+	 * @throws Exception
+	 */
+	public String save(Record rec) throws Exception {
 		StringBuilder sb=new StringBuilder();
 		sb.append("select * from reservation t ");
 		sb.append("where ");
@@ -50,6 +64,9 @@ public class ReservationService {
 		}
 		else{
 			Db.save("reservation", rec);
+			String id=rec.get("id")+"";
+			return id;
 		}
 	}
+
 }

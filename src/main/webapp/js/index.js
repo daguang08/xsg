@@ -1,5 +1,7 @@
-require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","dataPickerCN"], function ($, ko) {
+require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","dataPicker"], function ($, ko) {
     window.ko = ko;
+    //预约时间段数组
+    var visitTimeArray=["上午8点  ~ 上午10点","上午10点  ~ 上午12点","下午1点  ~ 下午3点","下午3点  ~ 下午5点","下午5点  ~ 下午7点"];
     
     var viewModel={
     		
@@ -14,7 +16,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
 			var phone_num=$("#phone_num").val();
 			var RegExp = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
 			var telphoneRegExp=/^(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)$/;
-			if (RegExp.test(phone_num) == false ) {
+			if (RegExp.test(phone_num) == false && telphoneRegExp.test(phone_num) == false) {
 				$("#warning").html("号码格式不正确或者位数不正确");
 				$("#"+id).focus();
 				return false;
@@ -23,7 +25,31 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
 				$("#warning").html("");
 			}
 		}
+		//参观人数校验
+		if(id == "visit_num"){
+			var visit_num=$("#visit_num").val();
+			//参观人数必须正确填写
+	    	if(visit_num <= 0){
+	    		$("#"+id).focus();
+	    		return false;
+	    	}
+		}
 	};
+	
+	
+
+	
+	
+	//重置方法
+	viewModel.resetForm= function() {
+		$("#unit").val('');
+		$("#contacts").val('');
+		$("#phone_num").val('');
+		$("#visit_date").val('');
+		$("#visit_num").val('');
+		$('#remark') .val('');
+	};
+	
     //保存方法
     viewModel.saveReservation = function() {
     	var unit=$("#unit").val();
@@ -33,8 +59,31 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
     	var visit_num=$("#visit_num").val();
     	var remark =$('#remark') .val();
     	
-    	
-    
+    	//参观人数必须正确填写
+    	if(visit_num <= 0){
+    		$("#visit_num").focus();
+    		return false;
+    	}
+    	//参观单位必须正确填写
+    	if(unit ==""){
+    		$("#unit").focus();
+    		return false;
+    	}
+    	//联系人必须正确填写
+    	if(contacts == ""){
+    		$("#contacts").focus();
+    		return false;
+    	}
+    	//联系电话必须正确填写
+    	if(phone_num ==""){
+    		$("#phone_num").focus();
+    		return false;
+    	}
+    	//参观日期必须正确填写
+    	if(visit_date ==""){
+    		$("#visit_date").focus();
+    		return false;
+    	}
     	
     	var options={};
     	options["unit"] = unit;
@@ -54,6 +103,8 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
     		success: function (data){
     			if(data.result=="success"){
     				alert(data.msg);
+    				//viewModel.resetForm();
+    				window.location.href="/xsg/view/reservation/success.html?id="+data.id; 
     			}
     			else if(data.result=="fail"){
     				alert(data.msg);
@@ -67,16 +118,21 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPicker","data
 
  
     $(function () {
+    	
+    	
+    	var newDate = new Date();
+        var t       = newDate.toJSON(); 
     	$('.form_date').datetimepicker({
     		format: "yyyy-mm-dd",
-            language:  'zh',
+            language:  'zh-CN',
             weekStart: 1,
             todayBtn:  1,
     		autoclose: 1,
     		todayHighlight: 1,
     		startView: 2,
     		minView: 2,
-    		forceParse: 0
+    		forceParse: 0,
+    		startDate:new Date(t),
         });
     	$.ajax({
     		url:"/xsg/index",
