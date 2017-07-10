@@ -143,6 +143,15 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     		console.log(data);
     		}
     	});
+    	
+    	$.ajax({
+    		url:"/xsg/totalcount",
+    		type: 'GET',
+    		dataType: 'json',
+    		success: function (data){
+    		}
+    	});
+    	
     	ko.cleanNode($('body')[0]);
 		var app = u.createApp({
 			el : "body",
