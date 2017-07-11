@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/xsg/trd/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./manage.css">
+
+  </head>
+  
+  <body>
+    <div id="showReserveList">
+    	<div type="text" u-meta='{"id":"dataGrid","data":"dataTableReserveList","type":"grid","editable":false,"autoExpand":false,"showNumCol":true,"showTree":false,"keyField":"id"}'>
+		<div
+			options='{"field":"unit","dataType":"String","title":"chr_id","editType":"string","width": 100,"visible":false}'>
+		</div>
+		<div
+			options='{"field":"visit_date","dataType":"String","title":"要素中文名","editType":"string","width": 100}'>
+		</div>
+		<div
+			options='{"field":"contacts","dataType":"String","title":"要素英文名","editType":"string","width": 100}'>
+		</div>
+		<div
+			options='{"field":"phone_num","dataType":"String","title":"要素全称","editType":"string","width": 150}'></div>
+		</div>
+	<p id="canEdit" style="display:none;color:red">系统已启用且存在业务数据，不能再进行设置！
+	</p>
+</div>
+    </div>
+  </body>
+      <script src="/xsg/trd/requirejs/require.js"></script>
+	  <script src="/xsg/trd/requirejs/require.config.js"></script>
+      <script src="./manage.js"></script>
+  
+</html>

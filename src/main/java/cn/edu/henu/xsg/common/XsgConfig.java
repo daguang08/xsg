@@ -87,7 +87,7 @@ public class XsgConfig extends JFinalConfig {
 	 * 配置全局拦截器
 	 */
 	public void configInterceptor(Interceptors me) {
-		me.add(new CountInterceptor());
+//		me.add(new CountInterceptor());
 	}
 	
 	/**
