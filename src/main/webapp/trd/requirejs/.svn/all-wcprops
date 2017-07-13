@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/df/!svn/ver/12040/source/product/Pay/trunk/gov.df.pay/gov.df.pay.web/src/main/webapp/df/trd/requirejs
+END
+text.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/df/!svn/ver/12040/source/product/Pay/trunk/gov.df.pay/gov.df.pay.web/src/main/webapp/df/trd/requirejs/text.js
+END
+css.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/df/!svn/ver/12040/source/product/Pay/trunk/gov.df.pay/gov.df.pay.web/src/main/webapp/df/trd/requirejs/css.js
+END
+require.js
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/df/!svn/ver/12040/source/product/Pay/trunk/gov.df.pay/gov.df.pay.web/src/main/webapp/df/trd/requirejs/require.js
+END
+require.debug.js
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/df/!svn/ver/12040/source/product/Pay/trunk/gov.df.pay/gov.df.pay.web/src/main/webapp/df/trd/requirejs/require.debug.js
+END
