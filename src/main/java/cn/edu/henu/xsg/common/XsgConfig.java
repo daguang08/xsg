@@ -1,5 +1,6 @@
 package cn.edu.henu.xsg.common;
 
+import cn.edu.henu.xsg.interceptor.CountInterceptor;
 import cn.edu.henu.xsg.model.Reservation;
 import cn.edu.henu.xsg.routes.FrontRoutes;
 import com.jfinal.config.Constants;
@@ -86,7 +87,7 @@ public class XsgConfig extends JFinalConfig {
 	 * 配置全局拦截器
 	 */
 	public void configInterceptor(Interceptors me) {
-		
+//		me.add(new CountInterceptor());
 	}
 	
 	/**
