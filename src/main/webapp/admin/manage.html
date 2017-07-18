@@ -4,29 +4,43 @@
     <title>后台管理</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/xsg/trd/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/xsg/trd/ip/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/uui/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/uui/css/u.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/uui/css/tree.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/ip/changeTree/changeTree.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/uui/css/grid.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/ip/css/ip.css" />
+	<link rel="stylesheet" type="text/css" href="/xsg/trd/ip/css/platform.css" />
     <link rel="stylesheet" type="text/css" href="./manage.css">
 
   </head>
   
   <body>
     <div id="showReserveList">
-    	<div type="text" u-meta='{"id":"dataGrid","data":"dataTableReserveList","type":"grid","editable":false,"autoExpand":false,"showNumCol":true,"showTree":false,"keyField":"id"}'>
+    	<div type="text" u-meta='{"id":"dataGrid","data":"dataTableReserveList","type":"grid","editable":false,"autoExpand":false,"multiSelect":true,"showNumCol":true,"showTree":false,"keyField":"id"}'>
 		<div
-			options='{"field":"unit","dataType":"String","title":"chr_id","editType":"string","width": 100,"visible":false}'>
+			options='{"field":"id","dataType":"String","title":"chr_id","editType":"string","visible":false}'>
 		</div>
 		<div
-			options='{"field":"visit_date","dataType":"String","title":"要素中文名","editType":"string","width": 100}'>
+			options='{"field":"unit","dataType":"String","title":"参观预约单位","editType":"string"}'>
 		</div>
 		<div
-			options='{"field":"contacts","dataType":"String","title":"要素英文名","editType":"string","width": 100}'>
+			options='{"field":"visit_date","dataType":"String","title":"预约访问时间","editType":"string"}'>
 		</div>
 		<div
-			options='{"field":"phone_num","dataType":"String","title":"要素全称","editType":"string","width": 150}'></div>
+			options='{"field":"contacts","dataType":"String","title":"联系人","editType":"string"}'>
 		</div>
-	<p id="canEdit" style="display:none;color:red">系统已启用且存在业务数据，不能再进行设置！
-	</p>
-</div>
+		<div
+			options='{"field":"phone_num","dataType":"String","title":"联系电话","editType":"string"}'>
+		</div>
+		<div
+			options='{"field":"remark","dataType":"String","title":"参观事由或人员介绍","editType":"string"}'>
+		</div>
+	</div>
     </div>
+    <button class="btn btn-danger btn-lg btn-block"  role="button" data-bind="click:delSelectedItems">删除</button> 
+    
   </body>
       <script src="/xsg/trd/requirejs/require.js"></script>
 	  <script src="/xsg/trd/requirejs/require.config.js"></script>

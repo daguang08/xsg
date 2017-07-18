@@ -1,4 +1,4 @@
-require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","dataPicker"], function ($, ko) {
+require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","dataPicker","grid"], function ($, ko) {
     window.ko = ko;
     //预约时间段数组
     var visitTimeArray=["上午8点  ~ 上午10点","上午10点  ~ 上午12点","下午1点  ~ 下午3点","下午3点  ~ 下午5点","下午5点  ~ 下午7点"];
@@ -10,9 +10,16 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 					'unit' : {},
 					'visit_date' : {},
 					'contacts' : {},
+					'phone_num':{},
+					'remark':{}
 				}
 			}),
 
+    };
+    //待完成 有个渲染功能
+    //删除 获取选中行的id数组
+    viewModel.delSelectedItems= function(){
+    	
     };
     
 	viewModel.initDataList = function(){
