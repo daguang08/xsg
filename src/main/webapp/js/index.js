@@ -62,26 +62,31 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     	//参观人数必须正确填写
     	if(visit_num <= 0){
     		$("#visit_num").focus();
+			ip.ipInfoJump("参观人数必须正确填写!", "error");
     		return false;
     	}
     	//参观单位必须正确填写
     	if(unit ==""){
     		$("#unit").focus();
+    		ip.ipInfoJump("参观单位必须正确填写!", "error");
     		return false;
     	}
     	//联系人必须正确填写
     	if(contacts == ""){
     		$("#contacts").focus();
+    		ip.ipInfoJump("联系人必须正确填写!", "error");
     		return false;
     	}
     	//联系电话必须正确填写
     	if(phone_num ==""){
     		$("#phone_num").focus();
+    		ip.ipInfoJump("联系电话必须正确填写!", "error");
     		return false;
     	}
     	//参观日期必须正确填写
     	if(visit_date ==""){
     		$("#visit_date").focus();
+    		ip.ipInfoJump("参观日期必须正确填写!", "error");
     		return false;
     	}
     	
@@ -102,12 +107,11 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     		dataType: 'json',
     		success: function (data){
     			if(data.result=="success"){
-    				alert(data.msg);
-    				//viewModel.resetForm();
+    				ip.ipInfoJump(data.msg, "success");
     				window.location.href="/xsg/view/reservation/success.html?id="+data.id; 
     			}
     			else if(data.result=="fail"){
-    				alert(data.msg);
+    				ip.ipInfoJump(data.msg, "error");
     			}
     		},
     		error:function(data){

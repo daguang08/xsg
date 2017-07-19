@@ -97,7 +97,12 @@ public class ReservationController extends Controller{
 	}
 	
 	public void delete() {
-		service.deleteById(getParaToInt());
-		redirect("/blog");
+		String idStr=getPara("ids");
+		String[] arr = idStr.split("@");
+		for(int i=0;i<arr.length;i++){
+			service.deleteById(Integer.parseInt(arr[i]));
+		}
+		setAttr("result","success");
+		renderJson();
 	}
 }

@@ -12,6 +12,7 @@ require.config({
 		polyFill: "trd/uui/js/u-polyfill",
 		tree: "trd/uui/js/u-tree",
 		grid: "trd/uui/js/u-grid",
+		ip:"trd/ip/js/ip",
 		dataPicker:"trd/datepicker/js/bootstrap-datetimepicker",
 		dataPickerMin:"bootstrap-datetimepicker.min",
 		dataPickerCN:"trd/datepicker/js/bootstrap-datetimepicker.zh-CN"
