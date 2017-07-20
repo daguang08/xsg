@@ -122,40 +122,6 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 
  
     $(function () {
-    	
-    	
-    	var newDate = new Date();
-        var t       = newDate.toJSON(); 
-    	$('.form_date').datetimepicker({
-    		format: "yyyy-mm-dd",
-            language:  'zh-CN',
-            weekStart: 1,
-            todayBtn:  1,
-    		autoclose: 1,
-    		todayHighlight: 1,
-    		startView: 2,
-    		minView: 2,
-    		forceParse: 0,
-    		startDate:new Date(t),
-        });
-    	$.ajax({
-    		url:"/xsg/index",
-    		type: 'GET',
-    		data:{"a":"abc"},
-    		dataType: 'json',
-    		success: function (data){
-    		console.log(data);
-    		}
-    	});
-    	
-    	$.ajax({
-    		url:"/xsg/totalcount",
-    		type: 'GET',
-    		dataType: 'json',
-    		success: function (data){
-    		}
-    	});
-    	
     	ko.cleanNode($('body')[0]);
 		var app = u.createApp({
 			el : "body",

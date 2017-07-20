@@ -106,7 +106,25 @@
 				</div>
 			</div>
 		</body>
+		<script src="/xsg/trd/jquery/jquery-3.2.1.min.js"></script>
+		<script src="/xsg/trd/datetimepicker/js/bootstrap-datetimepicker.js"></script>
 		<script src="/xsg/trd/requirejs/require.js"></script>
 		<script src="/xsg/trd/requirejs/require.config.js"></script>
 		<script src="/xsg/js/index.js"></script>
+		<script type="text/javascript">
+		var newDate = new Date();
+        var t       = newDate.toJSON(); 
+    	$('.form_date').datetimepicker({
+    		format: "yyyy-mm-dd",
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+    		autoclose: 1,
+    		todayHighlight: 1,
+    		startView: 2,
+    		minView: 2,
+    		forceParse: 0,
+    		startDate:new Date(t),
+        });
+		</script>
 </html>
