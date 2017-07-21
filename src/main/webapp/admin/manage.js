@@ -6,7 +6,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     var viewModel={
     		dataTableReserveList: new u.DataTable({
 				meta : {
-					"id" : {},
+					"guid" : {},
 					'unit' : {},
 					'visit_date' : {},
 					'contacts' : {},
@@ -19,10 +19,10 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     //待完成 有个渲染功能
     //删除 获取选中行的id数组
     viewModel.delSelectedItems= function(){
-    	var ids = viewModel.dataTableReserveList.getSimpleData({type : 'select',fields : [ 'id' ]});
+    	var ids = viewModel.dataTableReserveList.getSimpleData({type : 'select',fields : [ 'guid' ]});
     	var strIds="";
     	for(var i=0,length=ids.length;i<length;i++){
-    		strIds += ids[i].id+"@";
+    		strIds += ids[i].guid+"@";
     	}
     	strIds=strIds.substring(0,strIds.length-1);
     	var jsonData={ids:strIds};

@@ -108,7 +108,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     		success: function (data){
     			if(data.result=="success"){
     				ip.ipInfoJump(data.msg, "success");
-    				window.location.href="/xsg/view/reservation/success.html?id="+data.id; 
+    				window.location.href="/xsg/view/reservation/success.html?guid="+data.guid; 
     			}
     			else if(data.result=="fail"){
     				ip.ipInfoJump(data.msg, "error");

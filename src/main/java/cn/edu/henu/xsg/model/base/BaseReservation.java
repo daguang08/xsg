@@ -9,13 +9,13 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings({"serial", "unchecked"})
 public abstract class BaseReservation<M extends BaseReservation<M>> extends Model<M> implements IBean {
 
-	public M setId(java.lang.Integer id) {
-		set("id", id);
+	public M setGuid(java.lang.String guid) {
+		set("guid", guid);
 		return (M)this;
 	}
 
-	public java.lang.Integer getId() {
-		return get("id");
+	public java.lang.String getGuid() {
+		return get("guid");
 	}
 
 	public M setUnit(java.lang.String unit) {
@@ -88,6 +88,15 @@ public abstract class BaseReservation<M extends BaseReservation<M>> extends Mode
 
 	public java.util.Date getCreateTime() {
 		return get("create_time");
+	}
+
+	public M setIsDeleted(java.lang.String isDeleted) {
+		set("is_deleted", isDeleted);
+		return (M)this;
+	}
+
+	public java.lang.String getIsDeleted() {
+		return get("is_deleted");
 	}
 
 }

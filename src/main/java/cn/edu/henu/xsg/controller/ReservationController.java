@@ -2,6 +2,7 @@ package cn.edu.henu.xsg.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 
@@ -17,8 +18,6 @@ public class ReservationController extends Controller{
 	static ReservationService service = new ReservationService();
 	
 	public void index() {
-		setAttr("blogPage", service.paginate(getParaToInt(0, 1), 10));
-		render("blog.html");
 	}
 	public void getReservationList(){
 		List list=service.getReservationList();
@@ -35,6 +34,9 @@ public class ReservationController extends Controller{
 	 * 并要对数据进正确性进行验证，在此仅为了偷懒
 	 */
 	public void save() {
+		
+		//guid生成
+		String guid=UUID.randomUUID().toString();
 		String unit = "";
 		String contacts="";
 		String remark="";
@@ -58,12 +60,15 @@ public class ReservationController extends Controller{
 		rec.set("visit_num", visit_num);
 		rec.set("visit_time",Integer.parseInt(visit_time));
 		rec.set("remark", remark);
+		
+		rec.set("guid", guid);
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		String create_time=df.format(new Date());// new Date()为获取当前系统时间
 		rec.set("create_time", create_time);
 		try{
-			String id=service.save(rec);
-			setAttr("id",id);
+			service.save(rec);
+			setAttr("guid",guid);
 			setAttr("result","success");
 			setAttr("msg", "恭喜您！预约已经成功！");
 		}catch (Exception e) {
@@ -76,11 +81,10 @@ public class ReservationController extends Controller{
 	}
 	
 	public void edit() {
-		//setAttr("blog", service.findById(getParaToInt()));
 	}
 	
 	public void getReservationById(){
-		String id=getPara("id");
+		String id=getPara("guid");
 		Reservation res=service.findById(id);
 		setAttr("result","success");
 		setAttr("resData",res);
@@ -100,7 +104,7 @@ public class ReservationController extends Controller{
 		String idStr=getPara("ids");
 		String[] arr = idStr.split("@");
 		for(int i=0;i<arr.length;i++){
-			service.deleteById(Integer.parseInt(arr[i]));
+			service.deleteById(arr[i]);
 		}
 		setAttr("result","success");
 		renderJson();

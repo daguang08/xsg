@@ -14,7 +14,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director'], function ($, ko)
     		url:"/xsg/reservation/getReservationById",
     		type: 'GET',
     		dataType: 'json',
-    		data:{"id":getQueryString("id")},
+    		data:{"guid":getQueryString("guid")},
     		success: function (data){
     			if(data.result == "success"){
     				var appendHtml="";

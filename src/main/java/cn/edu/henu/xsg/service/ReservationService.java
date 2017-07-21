@@ -31,7 +31,7 @@ public class ReservationService {
 		return dao.findById(id);
 	}
 	
-	public void deleteById(int id) {
+	public void deleteById(String id) {
 		dao.deleteById(id);
 	}
 	
@@ -40,7 +40,7 @@ public class ReservationService {
 	 * @return
 	 */
 	public List getReservationList(){
-		return dao.find("select * from reservation order by id desc ");
+		return dao.find("select * from reservation");
 	}
 	
 	/**
@@ -64,8 +64,8 @@ public class ReservationService {
 		}
 		else{
 			Db.save("reservation", rec);
-			String id=rec.get("id")+"";
-			return id;
+			String guid=rec.get("guid")+"";
+			return guid;
 		}
 	}
 
