@@ -1,7 +1,7 @@
 require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","dataPicker","grid","ip"], function ($, ko) {
     window.ko = ko;
     //预约时间段数组
-    var visitTimeArray=["","上午8点  ~ 上午10点","上午10点  ~ 上午12点","下午1点  ~ 下午3点","下午3点  ~ 下午5点","下午5点  ~ 下午7点"];
+    var visitTimeArray=["上午8点  ~ 上午10点","上午10点  ~ 上午12点","下午1点  ~ 下午3点","下午3点  ~ 下午5点","下午5点  ~ 下午7点"];
     
     var viewModel={
     		dataTableReserveList: new u.DataTable({
