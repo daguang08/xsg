@@ -24,7 +24,7 @@ public class ReservationService {
 	private static final Reservation dao = new Reservation().dao();
 	
 	public Page<Reservation> paginate(int pageNumber, int pageSize) {
-		return dao.paginate(pageNumber, pageSize, "select *", "from reservation order by id asc");
+		return dao.paginate(pageNumber, pageSize, "select *", "from reservation");
 	}
 	
 	public Reservation findById(String id) {
@@ -32,7 +32,16 @@ public class ReservationService {
 	}
 	
 	public void deleteById(String id) {
-		dao.deleteById(id);
+		//dao.deleteById(id);
+		//改为假删除 2017-07-21 
+		StringBuffer sql=new StringBuffer();
+		sql.append("update reservation t ");
+		sql.append("set t.is_deleted=");
+		sql.append("'1' ");
+		sql.append("where t.guid='");
+		sql.append(id);
+		sql.append("'");
+		Db.update(sql.toString());
 	}
 	
 	/**
@@ -40,7 +49,7 @@ public class ReservationService {
 	 * @return
 	 */
 	public List getReservationList(){
-		return dao.find("select * from reservation");
+		return dao.find("select * from reservation t where t.is_deleted='0'");
 	}
 	
 	/**
