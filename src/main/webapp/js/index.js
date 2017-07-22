@@ -15,9 +15,9 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 		if(id == "phone_num"){
 			var phone_num=$("#phone_num").val();
 			var RegExp = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
-			var telphoneRegExp=/^(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)$/;
-			if (RegExp.test(phone_num) == false && telphoneRegExp.test(phone_num) == false) {
-				$("#warning").html("号码格式不正确或者位数不正确");
+			var telphoneRegExp=/\d{3}-\d{8}|\d{4}-\d{7}|\d{4}-\d{8}/;
+			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)) ) {
+				$("#warning").html("请输正确手机号，如果是固话加‘-’，如  0371-2XXXXXXX ");
 				$("#"+id).focus();
 				return false;
 			}
