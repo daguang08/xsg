@@ -24,7 +24,7 @@ public class ReservationService {
 	private static final Reservation dao = new Reservation().dao();
 	
 	public Page<Reservation> paginate(int pageNumber, int pageSize) {
-		return dao.paginate(pageNumber, pageSize, "select *", "from reservation");
+		return dao.paginate(pageNumber, pageSize, "select *", "from reservation t where t.is_deleted='0'");
 	}
 	
 	public Reservation findById(String id) {
@@ -40,7 +40,7 @@ public class ReservationService {
 		sql.append("'1' ");
 		sql.append("where t.guid='");
 		sql.append(id);
-		sql.append("'");
+		sql.append("' and t.is_deleted='0'");
 		Db.update(sql.toString());
 	}
 	
