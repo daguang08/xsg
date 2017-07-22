@@ -1,7 +1,7 @@
 require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","dataPicker","ip"], function ($, ko) {
     window.ko = ko;
     //预约时间段数组
-    var visitTimeArray=["上午8点  ~ 上午10点","上午10点  ~ 上午12点","下午1点  ~ 下午3点","下午3点  ~ 下午5点","下午5点  ~ 下午7点"];
+    var visitTimeArray=common.visitTimeArray;
     
     var viewModel={
     		
@@ -36,8 +36,15 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 		}
 	};
 	
-	
-
+	//初始化下拉列表
+	viewModel.initDropDownList=function(){
+		var selectEle = $("#visit_time_select");
+		selectEle.empty();
+		for(var i=0,length=visitTimeArray.length;i<length;i++) {
+		    var option = $("<option>").text(visitTimeArray[i]).val(i);
+		    selectEle.append(option);
+		}
+	};
 	
 	
 	//重置方法
@@ -127,6 +134,8 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 			el : "body",
 			model : viewModel
 		});
+		//初始化下拉列表
+		viewModel.initDropDownList();
     });
 
 });
