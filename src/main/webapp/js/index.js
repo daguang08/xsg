@@ -8,6 +8,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     };
     validateInput = function(id, value){
 		if(value == ""){
+    		ip.ipInfoJump("不能为空！", "error");
 			$("#"+id).focus();
 			return false;
 		}
@@ -30,6 +31,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 			var visit_num=$("#visit_num").val();
 			//参观人数必须正确填写
 	    	if(visit_num <= 0){
+	    		ip.ipInfoJump("参观人数必须正确填写！", "error");
 	    		$("#"+id).focus();
 	    		return false;
 	    	}
@@ -68,32 +70,32 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     	
     	//参观人数必须正确填写
     	if(visit_num <= 0){
-    		$("#visit_num").focus();
 			ip.ipInfoJump("参观人数必须正确填写!", "error");
+			$("#visit_num").focus();
     		return false;
     	}
     	//参观单位必须正确填写
     	if(unit ==""){
-    		$("#unit").focus();
     		ip.ipInfoJump("参观单位必须正确填写!", "error");
+    		$("#unit").focus();
     		return false;
     	}
     	//联系人必须正确填写
     	if(contacts == ""){
-    		$("#contacts").focus();
     		ip.ipInfoJump("联系人必须正确填写!", "error");
+    		$("#contacts").focus();
     		return false;
     	}
     	//联系电话必须正确填写
     	if(phone_num ==""){
-    		$("#phone_num").focus();
     		ip.ipInfoJump("联系电话必须正确填写!", "error");
+    		$("#phone_num").focus();
     		return false;
     	}
     	//参观日期必须正确填写
     	if(visit_date ==""){
-    		$("#visit_date").focus();
     		ip.ipInfoJump("参观日期必须正确填写!", "error");
+    		$("#visit_date").focus();
     		return false;
     	}
     	
