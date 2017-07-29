@@ -69,7 +69,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     	var remark =$('#remark') .val();
     	
     	//参观人数必须正确填写
-    	if(visit_num <= 0){
+    	if(visit_num =="" || visit_num <= 0){
 			ip.ipInfoJump("参观人数必须正确填写!", "error");
 			$("#visit_num").focus();
     		return false;
@@ -91,6 +91,18 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     		ip.ipInfoJump("联系电话必须正确填写!", "error");
     		$("#phone_num").focus();
     		return false;
+    	}
+    	else{
+    		var RegExp = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
+			var telphoneRegExp=/\d{3}-\d{8}|\d{4}-\d{7}|\d{4}-\d{8}/;
+			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)) ) {
+				$("#warning").html("请输正确手机号，如果是固话加‘-’，如  0371-2XXXXXXX ");
+				$("#phone_num").focus();
+				return false;
+			}
+			else{
+				$("#warning").html("");
+			}
     	}
     	//参观日期必须正确填写
     	if(visit_date ==""){
