@@ -74,12 +74,24 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 			$("#visit_num").focus();
     		return false;
     	}
+    	else if(visit_num > 300){
+    		ip.ipInfoJump("您的预约参观人数超过限制，请重新预约!", "error");
+			$("#visit_num").focus();
+    		return false;
+    	}
     	//参观单位必须正确填写
     	if(unit ==""){
     		ip.ipInfoJump("参观单位必须正确填写!", "error");
     		$("#unit").focus();
     		return false;
     	}
+    	//参观事由必须正确填写
+    	if(remark ==""){
+    		ip.ipInfoJump("参观事由或者介绍必须正确填写!", "error");
+    		$("#remark").focus();
+    		return false;
+    	}
+    	
     	//联系人必须正确填写
     	if(contacts == ""){
     		ip.ipInfoJump("联系人必须正确填写!", "error");

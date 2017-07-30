@@ -1,5 +1,6 @@
 package cn.edu.henu.xsg.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import cn.edu.henu.xsg.model.Reservation;
@@ -7,7 +8,7 @@ import cn.edu.henu.xsg.model.Reservation;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
-
+import java.util.Map;
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
  * 详见 JFinal 俱乐部: http://jfinal.com/club
@@ -57,9 +58,9 @@ public class ReservationService {
 	 * @param rec
 	 * @throws Exception
 	 */
-	public String save(Record rec) throws Exception {
+	public void save(Record rec) throws Exception {
 		StringBuilder sb=new StringBuilder();
-		sb.append("select * from reservation t ");
+		sb.append("select sum(visit_num) as total_num from reservation t ");
 		sb.append("where ");
 		sb.append("t.visit_date=");
 		sb.append("'");
@@ -67,14 +68,16 @@ public class ReservationService {
 		sb.append("'");
 		sb.append(" and t.visit_time=");
 		sb.append(rec.getInt("visit_time"));
+		sb.append(" and t.is_deleted='0'");
 		List res=Db.find(sb.toString());
-		if(res != null && res.size()>0){
-			throw new Exception("已存在！");
+		Record temp=(Record)res.get(0);
+		BigDecimal num =temp.getBigDecimal("total_num");
+		int visit_num=Integer.parseInt(rec.getStr("visit_num"));
+		if(num != null && num.intValue()+visit_num>400){
+				throw new Exception("超过人数限制！");
 		}
 		else{
 			Db.save("reservation", rec);
-			String guid=rec.get("guid")+"";
-			return guid;
 		}
 	}
 

@@ -63,6 +63,14 @@ public class ReservationController extends Controller{
 		
 		rec.set("guid", guid);
 		
+		if(Integer.parseInt(visit_num) > 300){
+			setAttr("result","fail");
+			setAttr("msg", "您的预约参观人数超过限制，请重新预约!");
+			renderJson();
+			return;
+		}
+		
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		String create_time=df.format(new Date());// new Date()为获取当前系统时间
 		rec.set("create_time", create_time);
@@ -74,7 +82,7 @@ public class ReservationController extends Controller{
 		}catch (Exception e) {
 			// TODO: handle exception
 			setAttr("result","fail");
-			setAttr("msg", "抱歉！该时间段已预约，请选择其他日期或者其他时间段！");
+			setAttr("msg", "抱歉！该时间段预约人数已满，请选择其他日期或者其他时间段！");
 		}
 		
 		renderJson();
