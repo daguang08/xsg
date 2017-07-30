@@ -8,6 +8,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 				meta : {
 					"guid" : {},
 					'unit' : {},
+					"visit_num":{},
 					'visit_date' : {},
 					'contacts' : {},
 					'phone_num':{},
@@ -62,6 +63,7 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     		success: function (data){
     			if(data.result=="success"){
     				viewModel.dataTableReserveList.setSimpleData(data.dataList,{"unSelect":true});
+    				$("#res_count").html(data.count);
     			}
     			else if(data.result=="fail"){
     				alert(data.msg);

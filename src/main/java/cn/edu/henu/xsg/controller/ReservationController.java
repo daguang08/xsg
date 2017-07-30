@@ -21,6 +21,7 @@ public class ReservationController extends Controller{
 	}
 	public void getReservationList(){
 		List list=service.getReservationList();
+		setAttr("count",list.size());
 		setAttr("result","success");
 		setAttr("dataList",list);
 		renderJson();
