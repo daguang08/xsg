@@ -1,4 +1,0 @@
-jdbcUrl = jdbc:mysql://114.115.204.89/xsg?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-user = root
-password = yyg19900822
-devMode = true
