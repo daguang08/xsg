@@ -17,8 +17,9 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
 			var phone_num=$("#phone_num").val();
 			var RegExp = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
 			var telphoneRegExp=/\d{3}-\d{8}|\d{4}-\d{7}|\d{4}-\d{8}/;
-			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)) ) {
-				$("#warning").html("请输正确手机号，如果是固话加‘-’，如  0371-2XXXXXXX ");
+			var shortNum =/\d{6}/;
+			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)  || shortNum.test(phone_num) ) ) {
+				$("#warning").html("请输正确手机号或者手机小号，如果是固话加‘-’，如  0371-2XXXXXXX ");
 				$("#"+id).focus();
 				return false;
 			}
@@ -107,8 +108,9 @@ require(['jquery', 'knockout', 'bootstrap', 'uui', 'director',"dataPickerCN","da
     	else{
     		var RegExp = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
 			var telphoneRegExp=/\d{3}-\d{8}|\d{4}-\d{7}|\d{4}-\d{8}/;
-			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)) ) {
-				$("#warning").html("请输正确手机号，如果是固话加‘-’，如  0371-2XXXXXXX ");
+			var shortNum =/\d{6}/;
+			if (!(RegExp.test(phone_num) || telphoneRegExp.test(phone_num)  || shortNum.test(phone_num) ) ) {
+				$("#warning").html("请输正确手机号或者手机小号，如果是固话加‘-’，如  0371-2XXXXXXX ");
 				$("#phone_num").focus();
 				return false;
 			}
